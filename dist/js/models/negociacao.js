@@ -11,4 +11,11 @@ export class Negociacao {
     get volume() {
         return this.quantidade * this.valor;
     }
+    static criaDe(stringData, stringQuantidade, stringValor) {
+        const exp = /-/g;
+        const date = new Date(stringData.replace(exp, ","));
+        const quantidade = parseInt(stringQuantidade);
+        const valor = parseFloat(stringValor);
+        return new Negociacao(date, quantidade, valor);
+    }
 }
